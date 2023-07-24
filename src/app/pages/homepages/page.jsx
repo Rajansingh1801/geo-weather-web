@@ -20,7 +20,7 @@ export default function Weather() {
   const [location, setLocation] = useState("hata");
 
   // for search
-  const [message, setMessage] = useState("");
+  const [message, setSearchLocation] = useState("");
 
   const handleKeyDown = (event) => {
     console.log(event.key);

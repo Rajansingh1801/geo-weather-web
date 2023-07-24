@@ -39,7 +39,7 @@ export default function Header(props) {
               type="text"
               name=""
               id=""
-              // onChange={(event) => setMessage(event.target.value)}
+              // onChange={(event) => setSearchLocation(event.target.value)}
               // onKeyDown={handleKeyDown}
               // value={message}
               className="w-full p-3 bg-transparent border-0 focus:border-0 outline-none"

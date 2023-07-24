@@ -9,7 +9,8 @@ export default function Footer_Web(props) {
   const [currentTimeMin, setCurrentTimeMIn] = useState("");
   const [currentTimeSec, setCurrentTimeSec] = useState("");
 
-  let livedate = props.data.dt;
+  // console.log(props.weatherdata?.dt);
+  let livedate = props.weatherdata?.dt;
   var monthNames = [
     "Jan",
     "Feb",
@@ -25,15 +26,22 @@ export default function Footer_Web(props) {
     "Dec",
   ];
   useEffect(() => {
-    var date = new Date(livedate).getDate(); //Current Date
-    var month = monthNames[new Date(livedate).getMonth() + 1]; //Current Month
-    var year = new Date().getFullYear(livedate); //Current Year
+    var date = new Date(livedate * 1000).getDate(); //Current Date
+    var month = monthNames[new Date(livedate * 1000).getMonth() + 1]; //Current Month
+    var year = new Date().getFullYear(livedate * 1000); //Current Year
     setCurrentDate(date + ", " + month + " " + year);
 
     const timer = setInterval(() => {
-      setCurrentTimeHour(new Date(livedate).getHours().toLocaleString() % 12);
-      setCurrentTimeMIn(new Date(livedate).getMinutes().toLocaleString());
-      setCurrentTimeSec(new Date(livedate).getSeconds().toLocaleString());
+      setCurrentTimeHour(
+        new Date(livedate * 1000).getHours().toLocaleString() % 12
+      );
+      setCurrentTimeMIn(
+        new Date(livedate * 1000).getMinutes().toLocaleString()
+      );
+
+      setCurrentTimeSec(
+        new Date(livedate * 1000).getSeconds().toLocaleString()
+      );
     }, 1000);
     return () => {
       clearInterval(timer);

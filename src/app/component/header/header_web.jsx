@@ -6,11 +6,12 @@ import { MagnifyingGlass } from "@phosphor-icons/react";
 
 export default function Header_Web({
   weatherdata,
-  message,
-  handleKeyDown,
-  setMessage,
+  handlepress,
+  searchLocation,
+  setSearchLocation,
+  searchbtn,
 }) {
-  console.log(weatherdata);
+  // console.log(weatherdata);
   const [sunriseHour, setSunriseHour] = useState("");
   const [sunriseMin, setSunriseMin] = useState("");
   const [sunriseSecond, setSunriseSecond] = useState("");
@@ -25,7 +26,7 @@ export default function Header_Web({
     setSunriseMin(new Date(sunriseData * 1000).getMinutes());
     setSunriseSecond(new Date(sunriseData * 1000).getSeconds());
 
-    let sunsetData = weatherdata?.sys.sunset;
+    let sunsetData = weatherdata?.sys?.sunset;
     setSunsetHour(new Date(sunsetData * 1000).getHours() % 12);
     setSunsetMin(new Date(sunsetData * 1000).getMinutes());
     setSunsetSecond(new Date(sunsetData * 1000).getSeconds());
@@ -44,13 +45,12 @@ export default function Header_Web({
               type="text"
               name=""
               id=""
-              onChange={(event) => setMessage(event.target.value)}
-              onKeyDown={handleKeyDown}
-              value={message}
+              onChange={(event) => setSearchLocation(event.target.value)}
+              value={searchLocation}
               className="w-full p-3 bg-transparent border-0 focus:border-0 outline-none"
             />
             <div>
-              <MagnifyingGlass size={32} weight="fill" onClick={onSubmit} />
+              <MagnifyingGlass size={32} weight="fill" onClick={searchbtn} />
             </div>
           </div>
         </div>

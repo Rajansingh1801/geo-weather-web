@@ -15,20 +15,22 @@ const Model = () => {
   );
 };
 
-export default function Details_Web({ weatherdata }) {
-  console.log(weatherdata);
+export default function Details_Web(props) {
+  // console.log(props.weatherdata);
   return (
     <>
       <section className="relative flex items-center w-full h-full justify-between ">
         <div className="text-white basis-1/2">
           <div className="text-center">
-            <h1 className="text-white text-9xl">{props.data?.main.temp}°C</h1>
+            <h1 className="text-white text-9xl">
+              {props.weatherdata?.main?.temp}°C
+            </h1>
             <div>
               <h4 className="text-5xl mt-4">
-                {props.data?.name},{props.data?.sys.country}
+                {props.weatherdata?.name},{props.weatherdata?.sys.country}
               </h4>
               <h4 className="mt-3 text-2xl">
-                Feel-like :- {props.data?.main.feels_like}°C
+                Feel-like :- {props.weatherdata?.main.feels_like}°C
               </h4>
             </div>
           </div>
