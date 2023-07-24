@@ -11,7 +11,7 @@ import p1 from "@/app/assets/images-bg/p1.jpg";
 import day from "@/app/assets/images-bg/day.png";
 import cold2 from "@/app/assets/images-bg/cold2.jpg";
 import rain from "@/app/assets/images-bg/rain.png";
-
+import "../homepages_web/style.css";
 export default function Weather_Web() {
   const [weatherdata, setWeatherData] = useState();
   const [bg, setbg] = useState(p1);
