@@ -7,8 +7,6 @@ import Sidebar from "@/app/component/sidebar/sidebar";
 import Image from "next/image";
 
 import p1 from "@/app/assets/images-bg/p1.jpg";
-// import p2 from "@/app/assets/images-bg/p2.jpg";
-// import cold2 from "@/app/assets/images-bg/cold2.jpg";
 
 import axios from "axios";
 import { useState, useEffect } from "react";
