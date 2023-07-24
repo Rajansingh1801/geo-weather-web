@@ -1,0 +1,26 @@
+{
+  "coord": { "lon": 83.7403, "lat": 26.7461 },
+  "weather": [
+    { "id": 801, "main": "Clouds", "description": "few clouds", "icon": "02d" }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 38.61,
+    "feels_like": 44.84,
+    "temp_min": 38.61,
+    "temp_max": 38.61,
+    "pressure": 998,
+    "humidity": 40,
+    "sea_level": 998,
+    "grnd_level": 989
+  },
+  "visibility": 10000,
+  "wind": { "speed": 4.76, "deg": 105, "gust": 6.44 },
+  "clouds": { "all": 22 },
+  "dt": 1689837955,
+  "sys": { "country": "IN", "sunrise": 1689810183, "sunset": 1689859157 },
+  "timezone": 19800,
+  "id": 1270232,
+  "name": "Hātā",
+  "cod": 200
+}
