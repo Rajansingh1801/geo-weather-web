@@ -10,7 +10,7 @@ import cloudyimg from "@/app/assets/icons/cloudy.png";
 
 export default function Sidebar_Web(props) {
   // console.log(props.weatherdata);
-  const icon = props.weatherdata?.weather[0].icon;
+  const icon = props.weatherdata?.weather[0]?.icon;
   const iconimage = `http://openweathermap.org/img/w/${icon}.png`;
 
   return (

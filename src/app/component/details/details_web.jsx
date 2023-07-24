@@ -5,6 +5,7 @@ import { Canvas, useLoader } from "react-three-fiber";
 import { Environment, OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 // import earth from "@/app/assets/images-bg/earth.glb";
+import { get } from "lodash";
 
 const Model = () => {
   const gltf = useLoader(GLTFLoader, "/earth.gltf");
@@ -28,9 +29,11 @@ export default function Details_Web(props) {
             <div>
               <h4 className="text-5xl mt-4">
                 {props.weatherdata?.name},{props.weatherdata?.sys.country}
+                {/* {get(props, "props.weatherdata?.name", "not found")},
+                {get(props, "props.weatherdata?.sys.country", "not found")} */}
               </h4>
               <h4 className="mt-3 text-2xl">
-                Feel-like :- {props.weatherdata?.main.feels_like}°C
+                Feel-like :- {props.weatherdata?.main?.feels_like}°C
               </h4>
             </div>
           </div>

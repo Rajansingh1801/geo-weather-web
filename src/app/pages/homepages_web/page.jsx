@@ -1,31 +1,29 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
+import Head from "next/head";
 // components
 import Header_Web from "@/app/component/header/header_web";
 import Details_web from "@/app/component/details/details_web";
 import Footer_web from "@/app/component/footer/footer_web";
 import Sidebar_web from "@/app/component/sidebar/sidebar_web";
-
 import p1 from "@/app/assets/images-bg/p1.jpg";
-import p2 from "@/app/assets/images-bg/p2.jpg";
+import day from "@/app/assets/images-bg/day.png";
 import cold2 from "@/app/assets/images-bg/cold2.jpg";
-import rain from "@/app/assets/images-bg/rain.jpg";
+import rain from "@/app/assets/images-bg/rain.png";
 
 export default function Weather_Web() {
   const [weatherdata, setWeatherData] = useState();
   const [bg, setbg] = useState(p1);
+  const [searchLocation, setSearchLocation] = useState("hata");
 
   // for background images
   useEffect(() => {
     if (weatherdata?.main.temp > 40) {
-      setbg(p2);
-    }
-    if (weatherdata?.main.temp > 30) {
       setbg(rain);
-    }
-    if (weatherdata?.main.temp > 20) {
+    } else if (weatherdata?.main.temp > 30) {
+      setbg(day);
+    } else if (weatherdata?.main.temp > 20) {
       setbg(p1);
     } else if (weatherdata?.main.temp > 10) {
       setbg(cold2);
@@ -33,13 +31,9 @@ export default function Weather_Web() {
   }, [weatherdata]);
 
   // for search
-  const [searchLocation, setSearchLocation] = useState("hata");
-  // console.log("city is :-" + searchLocation);
 
-  const handlepress = (event) => {
-    event.preventDefault();
-    // console.log(searchLocation);
-  };
+  // const handlepress = (event) => {
+  // };
   const searchbtn = async () => {
     try {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchLocation}&appid=d41cbaaad2f01b75473e4e3263fbfc2f&units=metric`;
@@ -61,6 +55,9 @@ export default function Weather_Web() {
 
   return (
     <>
+      <Head>
+        <link rel="stylesheet" href="/src/app/globals.css" />
+      </Head>
       <section className="home-bg ">
         <Image
           alt="Mountains"
@@ -80,7 +77,6 @@ export default function Weather_Web() {
                 weatherdata={weatherdata}
                 searchLocation={searchLocation}
                 setSearchLocation={setSearchLocation}
-                handlepress={handlepress}
                 searchbtn={searchbtn}
               />
             </div>
