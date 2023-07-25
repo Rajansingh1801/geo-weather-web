@@ -12,3 +12,7 @@ font-family: 'Chela One', cursive;
 font-family: 'Courgette', cursive;
 font-family: 'Libre Baskerville', serif;
  */
+
+::-webkit-scrollbar {
+  display: none;
+}
