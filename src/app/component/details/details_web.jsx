@@ -28,9 +28,9 @@ export default function Details_Web(props) {
             </h1>
             <div>
               <h4 className="text-5xl mt-4">
-                {props.weatherdata?.name},{props.weatherdata?.sys.country}
-                {/* {get(props, "props.weatherdata?.name", "not found")},
-                {get(props, "props.weatherdata?.sys.country", "not found")} */}
+                {/* {props.weatherdata?.name},{props.weatherdata?.sys.country} */}
+                {get(props, "weatherdata.name", "not found")},
+                {get(props, "weatherdata.sys.country", "not found")}
               </h4>
               <h4 className="mt-3 text-2xl">
                 Feel-like :- {props.weatherdata?.main?.feels_like}°C

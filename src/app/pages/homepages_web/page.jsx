@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Head from "next/head";
+import { get } from "lodash";
 // components
 import Header_Web from "@/app/component/header/header_web";
 import Details_web from "@/app/component/details/details_web";
@@ -19,13 +20,13 @@ export default function Weather_Web() {
 
   // for background images
   useEffect(() => {
-    if (weatherdata?.main.temp > 40) {
+    if (get(weatherdata, "main.temp", "not found") > 40) {
       setbg(rain);
-    } else if (weatherdata?.main.temp > 30) {
+    } else if (get(weatherdata, "main.temp", "not found") > 30) {
       setbg(day);
-    } else if (weatherdata?.main.temp > 20) {
+    } else if (get(weatherdata, "main.temp", "not found") > 20) {
       setbg(p1);
-    } else if (weatherdata?.main.temp > 10) {
+    } else if (get(weatherdata, "main.temp", "not found") > 10) {
       setbg(cold2);
     }
   }, [weatherdata]);

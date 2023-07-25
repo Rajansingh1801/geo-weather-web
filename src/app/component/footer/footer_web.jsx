@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { CloudArrowDown } from "@phosphor-icons/react";
 
 export default function Footer_Web(props) {
   const [currentDate, setCurrentDate] = useState("");
@@ -57,6 +58,12 @@ export default function Footer_Web(props) {
         <div className="text-white">
           <h5>Made in Next js</h5>
           <h5>Made with 💝 India</h5>
+        </div>
+        <div className="text-white text-center">
+          <a href="/app-release.apk" className="text-center">
+            <CloudArrowDown size={32} weight="fill" />
+          </a>
+          <h5> Downlaod Apk</h5>
         </div>
         <div className="text-white">
           <h4>{currentDate}</h4>
